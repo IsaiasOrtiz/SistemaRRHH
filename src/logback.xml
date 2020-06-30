@@ -1,0 +1,28 @@
+<configuration>
+    
+    <property name="HOME_LOG" value="/opt/logMonitor/monitor.log"/>
+ 
+    <appender name="FILE_ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${HOME_LOG}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">        
+            <!-- daily rollover -->
+            <fileNamePattern>/opt/logMonitor/momitorDeServidorLogs/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            
+             <maxFileSize>10MB</maxFileSize>
+             
+            <totalSizeCap>3GB</totalSizeCap>
+            
+             <maxHistory>3</maxHistory>
+             <append>true</append>
+        </rollingPolicy>
+        <encoder>
+            <pattern> %d %p %c{1.} [%t] %m%n</pattern>
+        </encoder>
+    </appender> 
+
+    <root level="error">
+        <appender-ref ref="FILE_ROLLING"/>
+    </root>
+
+</configuration>
+
