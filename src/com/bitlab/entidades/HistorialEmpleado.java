@@ -88,4 +88,10 @@ public class HistorialEmpleado {
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     } 
+
+    @Override
+    public String toString() {
+        return "HistorialEmpleado{" + "id=" + id + ", empleado=" + empleado + ", descripcion=" + descripcion + ", usuarioModifica=" + usuarioModifica + ", usuarioCrea=" + usuarioCrea + ", fechaModificacion=" + fechaModificacion + ", fechaCreacion=" + fechaCreacion + '}';
+    }
+    
 }

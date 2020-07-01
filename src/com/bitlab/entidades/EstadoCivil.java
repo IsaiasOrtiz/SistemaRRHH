@@ -79,6 +79,11 @@ public class EstadoCivil {
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
+
+    @Override
+    public String toString() {
+        return "EstadoCivil{" + "id=" + id + ", nombre=" + nombre + ", usuarioModifica=" + usuarioModifica + ", fechaModificacion=" + fechaModificacion + ", usuarioCrea=" + usuarioCrea + ", fechaCreacion=" + fechaCreacion + '}';
+    }
      
    
 }

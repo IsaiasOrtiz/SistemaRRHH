@@ -168,7 +168,12 @@ public class Empleado {
     public void setFechaModificacion(Date fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
-    
 
+    @Override
+    public String toString() {
+        return "Empleado{" + "id=" + id + ", dpArea=" + dpArea + ", ecEstadoCivil=" + ecEstadoCivil + ", esEstado=" + esEstado + ", slSalario=" + slSalario + ", sxSexo=" + sxSexo + ", nombres=" + nombres + ", apellidos=" + apellidos + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", dui=" + dui + ", usuarioModifica=" + usuarioModifica + ", usuarioCrea=" + usuarioCrea + ", fechaCreacion=" + fechaCreacion + ", fechaModificacion=" + fechaModificacion + '}';
+    }
+    
+    
  
 }

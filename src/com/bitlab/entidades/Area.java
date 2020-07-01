@@ -16,15 +16,15 @@ public class Area {
      private int id;
      private int scID;
      private String nombre;
-     private Integer usuarioCrea;
+     private int usuarioCrea;
      private Date fechaModificacion;
      private Date fechaCreacion;
-     private Integer usuarioModifica;
+     private int usuarioModifica;
 
     public Area() {
     }
 
-    public Area(int id, int scID, String nombre, Integer usuarioCrea, Date fechaModificacion, Date fechaCreacion, Integer usuarioModifica) {
+    public Area(int id, int scID, String nombre, int usuarioCrea, Date fechaModificacion, Date fechaCreacion, int usuarioModifica) {
         this.id = id;
         this.scID = scID;
         this.nombre = nombre;
@@ -59,11 +59,11 @@ public class Area {
         this.nombre = nombre;
     }
 
-    public Integer getUsuarioCrea() {
+    public int getUsuarioCrea() {
         return usuarioCrea;
     }
 
-    public void setUsuarioCrea(Integer usuarioCrea) {
+    public void setUsuarioCrea(int usuarioCrea) {
         this.usuarioCrea = usuarioCrea;
     }
 
@@ -83,12 +83,17 @@ public class Area {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Integer getUsuarioModifica() {
+    public int getUsuarioModifica() {
         return usuarioModifica;
     }
 
-    public void setUsuarioModifica(Integer usuarioModifica) {
+    public void setUsuarioModifica(int usuarioModifica) {
         this.usuarioModifica = usuarioModifica;
+    }
+
+    @Override
+    public String toString() {
+        return "Area{" + "id=" + id + ", scID=" + scID + ", nombre=" + nombre + ", usuarioCrea=" + usuarioCrea + ", fechaModificacion=" + fechaModificacion + ", fechaCreacion=" + fechaCreacion + ", usuarioModifica=" + usuarioModifica + '}';
     }
 
 

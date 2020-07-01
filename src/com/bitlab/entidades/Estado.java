@@ -78,6 +78,11 @@ public class Estado {
     public void setUsuarioCrea(int usuarioCrea) {
         this.usuarioCrea = usuarioCrea;
     }
+
+    @Override
+    public String toString() {
+        return "Estado{" + "id=" + id + ", nombre=" + nombre + ", fechaCreacion=" + fechaCreacion + ", fechaModificacion=" + fechaModificacion + ", usuarioModifica=" + usuarioModifica + ", usuarioCrea=" + usuarioCrea + '}';
+    }
     
      
      

@@ -79,6 +79,11 @@ public class Sucursal {
     public void setUsuarioCrea(int usuarioCrea) {
         this.usuarioCrea = usuarioCrea;
     }
+
+    @Override
+    public String toString() {
+        return "Sucursal{" + "id=" + id + ", nombre=" + nombre + ", fechaModificacion=" + fechaModificacion + ", usuarioModifica=" + usuarioModifica + ", fechaCreacion=" + fechaCreacion + ", usuarioCrea=" + usuarioCrea + '}';
+    }
     
     
 }

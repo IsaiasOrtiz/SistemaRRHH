@@ -80,4 +80,9 @@ public class Sexo {
         this.fechaCreacion = fechaCreacion;
     }
 
+    @Override
+    public String toString() {
+        return "Sexo{" + "id=" + id + ", nombre=" + nombre + ", usuarioModifica=" + usuarioModifica + ", fechaModificacion=" + fechaModificacion + ", usuarioCrea=" + usuarioCrea + ", fechaCreacion=" + fechaCreacion + '}';
+    }
+
 }

@@ -110,6 +110,11 @@ public class Usuario {
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", epEmpleado=" + epEmpleado + ", tpTipo=" + tpTipo + ", usuario=" + usuario + ", clave=" + clave + ", fechaModificacion=" + fechaModificacion + ", usuarioCrea=" + usuarioCrea + ", usuarioModifica=" + usuarioModifica + ", fechaCreacion=" + fechaCreacion + '}';
+    }
      
      
 }
