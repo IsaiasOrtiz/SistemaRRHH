@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author Douglas Isaias Valle Ortiz
  */
-public class Area {
+public class Departamento {
     
      private int id;
      private int scID;
@@ -21,10 +21,10 @@ public class Area {
      private Date fechaCreacion;
      private int usuarioModifica;
 
-    public Area() {
+    public Departamento() {
     }
 
-    public Area(int id, int scID, String nombre, int usuarioCrea, Date fechaModificacion, Date fechaCreacion, int usuarioModifica) {
+    public Departamento(int id, int scID, String nombre, int usuarioCrea, Date fechaModificacion, Date fechaCreacion, int usuarioModifica) {
         this.id = id;
         this.scID = scID;
         this.nombre = nombre;

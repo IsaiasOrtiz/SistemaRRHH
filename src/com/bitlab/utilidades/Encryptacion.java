@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
  * @version 1.0
  */
 public class Encryptacion {
+    
     private static final Logger log= LoggerFactory.getLogger(Encryptacion.class);
     private static final String PAS1="GG_ECHO_BIT_BASE23";
     private String conf="config.properties";

@@ -7,8 +7,9 @@ package com.bitlab.sistemaderrhh;
 
 
 
+import com.bitlab.utilidades.LecturaDatos;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -16,13 +17,13 @@ import org.slf4j.LoggerFactory;
  */
 public class SistemaDeRRHH {
 
-    private static Logger log = LoggerFactory.getLogger(SistemaDeRRHH.class);
+//    private static Logger log = LoggerFactory.getLogger(SistemaDeRRHH.class);
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+    
     }
 
 }

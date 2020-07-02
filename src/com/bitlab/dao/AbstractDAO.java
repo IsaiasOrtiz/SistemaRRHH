@@ -308,7 +308,7 @@ public abstract class AbstractDAO<T> {
      */
     public void sqlDelete(Object valor) throws ClassNotFoundException, SQLException, IOException {
         Connection cn = abrirConexionDB();
-        PreparedStatement ps = cn.prepareStatement(sqlUpdateConsulta());
+        PreparedStatement ps = cn.prepareStatement(sqlDeleteConsulta());
         ps.setObject(1, valor);
         ps.execute();
         cerrarObjetosJDBC(cn, ps);
