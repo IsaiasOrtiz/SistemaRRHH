@@ -14,7 +14,7 @@ import java.sql.Date;
 public class Sucursal {
 
     private int id;
-    private int nombre;
+    private String nombre;
     private Date fechaModificacion;
     private int usuarioModifica;
     private Date fechaCreacion;
@@ -23,7 +23,7 @@ public class Sucursal {
     public Sucursal() {
     }
 
-    public Sucursal(int id, int nombre, Date fechaModificacion, int usuarioModifica, Date fechaCreacion, int usuarioCrea) {
+    public Sucursal(int id, String nombre, Date fechaModificacion, int usuarioModifica, Date fechaCreacion, int usuarioCrea) {
         this.id = id;
         this.nombre = nombre;
         this.fechaModificacion = fechaModificacion;
@@ -40,13 +40,15 @@ public class Sucursal {
         this.id = id;
     }
 
-    public int getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(int nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    
 
     public Date getFechaModificacion() {
         return fechaModificacion;
