@@ -14,6 +14,7 @@ import java.util.Scanner;
  * @author Douglas Isaias Valle Ortiz
  */
 public class LecturaDatos {
+
     public static final String ANSI_RESET = "\u001B[0m";
     GregorianCalendar gc = new GregorianCalendar();
     Scanner sc = new Scanner(System.in);
@@ -115,6 +116,7 @@ public class LecturaDatos {
         }
         return decimalDato;
     }
+
     public byte leerByte(String nombre) {
 
         byte byteD = 0;
@@ -124,7 +126,7 @@ public class LecturaDatos {
                 System.out.println("Ingrese el " + nombre);
                 byteD = Byte.parseByte(sc.nextLine());
                 if (byteD < 0) {
-                    System.out.println(ANSI_RESET+"No ingresar numeros menores a 0"+ANSI_RESET);
+                    System.out.println(ANSI_RESET + "No ingresar numeros menores a 0" + ANSI_RESET);
                 } else {
                     flag = false;
                 }
@@ -135,7 +137,25 @@ public class LecturaDatos {
         }
         return byteD;
     }
-    public boolean siOno(Object obj) {
+
+    public byte leerOpciones(byte inicial, byte fin) {
+        boolean flag = true;
+        byte numero = 0;
+        while (flag) {
+            try {
+            System.out.println("Seleccione la opcion..");
+            numero = Byte.parseByte(sc.nextLine());
+            flag = !(numero >= inicial && numero <= fin);
+            if (flag) 
+                System.out.println("Al parecer no selecciono una opcion valida...");
+            } catch (NumberFormatException e) {
+                 System.out.println("Al parecer no selecciono una opcion valida...");
+            }
+            
+            
+        }
+        return numero;
+    }  public boolean siOno(Object obj) {
         System.out.println(obj.toString());
         boolean flag = true;
         String dato="";

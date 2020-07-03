@@ -211,7 +211,32 @@ public abstract class AbstractDAO<T> {
         cerrarObjetosJDBC(cn, ps, rs);
         return e;
     }
-
+    /**
+     * Obtengo un una consula que me devuelve un objeto
+     * con 1 dato si el valor buscado existe....
+     * @param valor
+     * @param campo
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     * @throws IOException 
+     */
+    public T obtenerUnDaCampoEspecifico(Object valor,String campo) throws ClassNotFoundException, SQLException, IOException {
+        String sqlObtenerUno = SQL_SELECT + SQL_WHERE + campo + " = ?";
+        sqlObtenerUno = sqlObtenerUno.replace(TABLA_INDICADOR, obtenerTablaDeBD());
+        sqlObtenerUno = sqlObtenerUno.replace(CAMPOS_INDICADOR, Arrays.toString(obtenerCamposDeTabla()));
+        sqlObtenerUno = (sqlObtenerUno.replace("[", "")).replace("]", "");
+        Connection cn = abrirConexionDB();
+        PreparedStatement ps = cn.prepareStatement(sqlObtenerUno);
+        ps.setObject(1, valor);
+        ResultSet rs = ps.executeQuery();
+        T e = null;
+        if (rs.next()) {
+            e = mapearEntidad(rs);
+        }
+        cerrarObjetosJDBC(cn, ps, rs);
+        return e;
+    }
     /**
      * Retorna la consulta SELECT [CAMPOS] FROM [TABLA] modificada y lista para
      * usar recordar setiar parametros de los siguientes metodos campoClavePK();
@@ -249,6 +274,18 @@ public abstract class AbstractDAO<T> {
         mapearPreparedStatementInsert(entidad, ps);
         ps.execute();
         cerrarObjetosJDBC(cn, ps);
+    }
+    /**
+     * Retorna verdadero o falso si un campo existe o no.
+     * @param id
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     * @throws IOException 
+     */
+    public boolean datoExiste(Object id) throws ClassNotFoundException, SQLException, IOException
+    {
+        return obtenerUnDatoPorId(id)!=null;
     }
 
     /**
@@ -313,7 +350,6 @@ public abstract class AbstractDAO<T> {
         ps.execute();
         cerrarObjetosJDBC(cn, ps);
     }
-
     /**
      * debes retornar el nombre de tu obtenerTablaDeBD.
      *

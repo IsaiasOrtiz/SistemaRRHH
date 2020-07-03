@@ -40,6 +40,7 @@ public class EstadoMDL {
         if (lr.siOno(es)) {
             try {
                 esd.sqlInsert(es);
+                System.out.println("Se creo el estado : "+es.getNombre());
             } catch (ClassNotFoundException ex) {
                 log.error(ex.getMessage());
             } catch (SQLException ex) {
@@ -64,6 +65,7 @@ public class EstadoMDL {
                 if(lr.siOno(esd2))
                 {
                 esd.sqlUpdate(esd2);
+                 System.out.println("Se modifico el estado a: "+esd2.getNombre());
                 }else{
                     System.out.println("No se modifico");
                 }
@@ -94,6 +96,46 @@ public class EstadoMDL {
             Logger.getLogger(EstadoMDL.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(EstadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    public void moduloEstado(int id)
+    {
+    boolean flag=true;
+        while(flag)
+        {
+            System.out.println("===========Opciones Estados===========\n");
+        System.out.println("1 )Crear un nuevo estado.");
+        System.out.println("2 )Modificar un estado");
+        System.out.println("3 )Lista de estados.");
+        System.out.println("4 )salir");
+        System.out.println("============================================");
+         switch(lr.leerOpciones((byte)1,(byte)4))
+        {
+            case 1:
+                   nuevoEstadoEmpleado(id);
+                break;
+            case 2:
+                    modificarUnEstado(id);
+                    System.out.println("Se modifico el estado.");
+                break;
+            case 3:
+                  consultarEstados();
+                {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(EstadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+            case 4:
+                 flag=false;
+                 System.out.println("Volvera al menu principal.");
+                break;
+            default: 
+        }
         }
     
     }

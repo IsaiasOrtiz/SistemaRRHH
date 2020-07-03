@@ -14,6 +14,8 @@ import com.bitlab.utilidades.LecturaDatos;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -21,6 +23,7 @@ import org.slf4j.LoggerFactory;
  * @author Douglas Isaias Valle Ortiz
  */
 public class DepartamentosMDL {
+
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(DepartamentosMDL.class);
     Scanner sc = new Scanner(System.in);
     DepartamentoDAO dp = new DepartamentoDAO();
@@ -119,5 +122,43 @@ public class DepartamentosMDL {
         } catch (IOException ex) {
             log.error(ex.getMessage());
         }
+    }
+
+    public void moduloDepartamentos(int id) {
+        boolean flag = true;
+        while (flag) {
+            System.out.println("===========Opciones departamentos===========\n");
+            System.out.println("1 )Crear nuevo departamento.");
+            System.out.println("2 )Ver departamentos");
+            System.out.println("3 )Modificar un departamento");
+            System.out.println("4 )Eliminar un departamento");
+            System.out.println("5 )salir");
+            System.out.println("============================================");
+            switch (lr.leerOpciones((byte) 1, (byte) 5)) {
+                case 1:
+                    crearNuevoDepartamento(id);
+                    break;
+                case 2:
+                    verDepartamentos();
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(EstadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    break;
+                case 3:
+                    modificarDepartamento(id);
+                    break;
+                case 4:
+                    eliminarDapartamento();
+                    break;
+                case 5:
+                    flag = false;
+                    System.out.println("Volvera al menu principal.");
+                    break;
+                default:
+            }
+        }
+
     }
 }

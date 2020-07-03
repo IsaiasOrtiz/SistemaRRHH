@@ -29,6 +29,11 @@ public class EmpleadoMDL {
     Fechas fc = new Fechas();
     EmpleadoDAO esd = new EmpleadoDAO();
     EstadoDAO es=new EstadoDAO();
+    public void nuevoEmpleado()
+    {
+    
+    
+    }
    public void cambiarEstadoDeEmpleado(int id)
    {
        
@@ -76,8 +81,8 @@ public class EmpleadoMDL {
         }
    }
    
-    public static void main(String[] args) {
-        EmpleadoMDL e=new EmpleadoMDL();
-        e.cambiarEstadoDeEmpleado(0);
-    }
+//    public static void main(String[] args) {
+//        EmpleadoMDL e=new EmpleadoMDL();
+//        e.cambiarEstadoDeEmpleado(0);
+//    }
 }

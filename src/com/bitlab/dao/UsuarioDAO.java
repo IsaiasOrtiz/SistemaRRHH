@@ -69,11 +69,10 @@ public class UsuarioDAO extends AbstractDAO<Usuario> {
     @Override
     protected void mapearPreparedStatementInsert(Usuario entidad, PreparedStatement ps) throws SQLException {
         Encryptacion en=new Encryptacion();
-        String clave=en.getDesencryptacion(entidad.getClave());
-        String usuario=en.getDesencryptacion(entidad.getUsuario());
+        String clave=en.getEncryptacion(entidad.getClave());
         
         ps.setInt(      1, entidad.getId());
-        ps.setString(   2, usuario);
+        ps.setString(   2, entidad.getUsuario());
         ps.setString(   3, clave);
         ps.setDate(     4, entidad.getFechaModificacion());
         ps.setInt(      5,entidad.getUsuarioCrea());
@@ -94,6 +93,7 @@ public class UsuarioDAO extends AbstractDAO<Usuario> {
         ps.setDate(     7, entidad.getFechaCreacion());
         ps.setInt(      8, entidad.getEpEmpleado());
         ps.setInt(      9, entidad.getTpTipo());
+        ps.setInt(      10, entidad.getId());
     }
     
 }
