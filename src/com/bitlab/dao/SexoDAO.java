@@ -6,9 +6,12 @@
 package com.bitlab.dao;
 
 import com.bitlab.entidades.Sexo;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -78,5 +81,19 @@ public class SexoDAO extends AbstractDAO<Sexo>{
         ps.setDate(     6, entidad.getFechaCreacion());
         ps.setInt(      7, entidad.getId());
     }
-    
+    public void sexosConformato()    
+    {
+        try {
+            System.out.println("=============SEXOS DISPONIBLES=============");
+            for (Sexo o : obtenerTodos()) {
+                System.out.println("|ID: "+o.getId()+" |Nombre: "+o.getNombre());
+            }
+        } catch (SQLException ex) {
+           
+        } catch (ClassNotFoundException ex) {
+            
+        } catch (IOException ex) {
+            
+        }
+    }
 }
