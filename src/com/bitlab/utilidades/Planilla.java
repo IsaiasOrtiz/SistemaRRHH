@@ -10,7 +10,13 @@ package com.bitlab.utilidades;
  * @author Douglas Isaias Valle Ortiz
  */
 public class Planilla {
-
+    /**
+     * Calculamos el ISSS de un salario 
+     * que recibimos como parametro
+     * y retormanos el ISSS de ese salario.
+     * @param salario
+     * @return 
+     */
     public double isss(double salario) {
         double isss = 0;
         if (salario >= 1000) {
@@ -20,13 +26,25 @@ public class Planilla {
         }
         return isss;
     }
-
+    /**
+     * Calculamos el APF de un salario 
+     * que recibimos como parametro
+     * y retormanos el AFP de ese salario.
+     * @param salario
+     * @return 
+     */
     public double afp(double salario) {
         double afp = 0;
         afp = salario * 0.0725;
         return afp;
     }
-
+    /**
+     * Calculamos la renta de un salario 
+     * que recibimos como parametro
+     * y retormanos la renta de ese salario.
+     * @param salario
+     * @return 
+     */
     public double renta(double salario) {
         double renta = 0;
         double salarioMenosAfpIsss = salario - (afp(salario) + isss(salario));
@@ -41,11 +59,23 @@ public class Planilla {
         }
         return renta;
     }
+    /**
+     * Calculamos el sueldo neto de un salario 
+     * que recibimos como parametro.
+     * @param salario
+     * @return 
+     */
     public double sueldoNeto(double salario)
     {
         double salarioN=salario - (isss(salario)+afp(salario)+renta(salario));
         return salarioN;
     }
+    /**
+     * Retorna una cadena con los descuentos 
+     * que se le aplican a nuestro salario.
+     * @param salario
+     * @return 
+     */
     public String resumenSalario(double salario)
     {
     String str="AFP: "+afp(salario)

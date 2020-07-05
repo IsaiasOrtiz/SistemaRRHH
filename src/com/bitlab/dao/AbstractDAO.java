@@ -54,7 +54,7 @@ public abstract class AbstractDAO<T> {
      * @throws IOException
      */
     protected Connection abrirConexionDB() throws ClassNotFoundException, SQLException, IOException {
-        return ConexionDB.abrirConexion();
+        return ConexionDB.obtenerInstancia().abrirConexion();
     }
 
     /**
@@ -65,7 +65,8 @@ public abstract class AbstractDAO<T> {
      */
     protected void cerrarConexionDB(Connection cn) throws SQLException {
         if (cn != null && !cn.isClosed()) {
-            cn.close();
+            ConexionDB.cerrarConexion(cn);
+            
         }
     }
     //metodos para cerrar los JDBC necesarios.
@@ -83,7 +84,7 @@ public abstract class AbstractDAO<T> {
             st.close();
         }
         if (cn != null && !cn.isClosed()) {
-            cn.close();
+            ConexionDB.cerrarConexion(cn);
         }
     }
 
@@ -100,7 +101,7 @@ public abstract class AbstractDAO<T> {
             st.close();
         }
         if (cn != null && !cn.isClosed()) {
-            cn.close();
+            ConexionDB.cerrarConexion(cn);
         }
     }
 
@@ -121,7 +122,7 @@ public abstract class AbstractDAO<T> {
             st.close();
         }
         if (cn != null && !cn.isClosed()) {
-            cn.close();
+            ConexionDB.cerrarConexion(cn);
         }
     }
 
@@ -142,7 +143,7 @@ public abstract class AbstractDAO<T> {
             st.close();
         }
         if (cn != null && !cn.isClosed()) {
-            cn.close();
+            ConexionDB.cerrarConexion(cn);
         }
     }
 

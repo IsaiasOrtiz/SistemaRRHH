@@ -17,7 +17,13 @@ import java.util.Scanner;
 public class Fechas {
     GregorianCalendar gc = new GregorianCalendar();
     Scanner sc = new Scanner(System.in);
-
+    /**
+     * Leemos una fecha desde teclado 
+     * pidiendo al usuario ingresar 
+     * Dia,mes,año 
+     * para luego retornarla como un DATE
+     * @return 
+     */
     public Date agregarFecha() {
         byte dia = 100;
         byte mes = 100;
@@ -55,6 +61,10 @@ public class Fechas {
         gc.set(GregorianCalendar.YEAR, ano);
         return new Date(gc.getTimeInMillis());
     }
+    /**
+     * Obtenemos la fecha actual del sistema.
+     * @return 
+     */
     public Date fechaActual()
     {
         Calendar calendar = Calendar.getInstance();

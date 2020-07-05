@@ -12,7 +12,9 @@ import java.io.IOException;
  * @author Douglas Isaias Valle Ortiz
  */
 public class Comandos {
-
+    /**
+     * Ejecuta comando de limpiado de pantalla del sistema.
+     */
     public void limpiarPantalla() {
         try {
             if ((System.getProperty("os.name").toUpperCase()).contains("WIN")) {

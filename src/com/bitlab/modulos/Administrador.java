@@ -24,7 +24,13 @@ public class Administrador {
     EstadoMDL es=new EstadoMDL();
     UsuarioMDL us=new UsuarioMDL();
     Comandos comandos=new Comandos();
-
+    /**
+     * Modulo de administrador con todos los componentes cargados para poder 
+     * funcionar y tener todas las opciones disponibles.
+     * recibe el usuario y el id del usuario en la session.
+     * @param nombre
+     * @param id 
+     */
     public void modulo(String nombre, int id) {
         boolean flag = true;
         System.out.println("Hola [" + nombre + "] Administrador.\n");

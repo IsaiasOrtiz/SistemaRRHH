@@ -17,8 +17,6 @@ import com.bitlab.utilidades.LecturaDatos;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -38,6 +36,12 @@ public class EmpleadoMDL {
     SalarioDAO sl = new SalarioDAO();
     DepartamentosMDL dp = new DepartamentosMDL();
 
+    /**
+     * Vista para registrar un nuevo empleado. recibe el id del empleado con el
+     * cual estara haciendo las distintas modificaciones.
+     *
+     * @param id
+     */
     public void nuevoEmpleado(int id) {
         try {
             Empleado ep = new Empleado();
@@ -71,15 +75,21 @@ public class EmpleadoMDL {
             System.out.println("Para cambiarlo cree un nuevo empleado y asignelo al empleado.");
             System.out.println("Empleado creado.");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (SQLException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
 
     }
 
+    /**
+     * Vista para cambiar un empleado a estado desactivado o despedido
+     *
+     * @param id
+     */
     public void desactivarEmpleado(int id) {
         try {
             Empleado ep = new Empleado();
@@ -98,15 +108,22 @@ public class EmpleadoMDL {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (SQLException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
 
     }
 
+    /**
+     * Cambia el estado del empleado a uno especifico y recibe el parametro del
+     * id de usuario que lo esta modificando.
+     *
+     * @param id
+     */
     public void cambiarEstadoDeEmpleado(int id) {
 
         try {
@@ -129,15 +146,23 @@ public class EmpleadoMDL {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (SQLException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
 
     }
 
+    /**
+     * Actualiza todos lo datos del empleado exepto los campos de auditoria
+     * recibe como parametro el id del usuario que esta haciendo las
+     * modificaciones
+     *
+     * @param id
+     */
     public void actualizarEmpleado(int id) {
         try {
 
@@ -146,9 +171,12 @@ public class EmpleadoMDL {
             if (ep != null) {
                 System.out.println("Empleado al que modificara.");
                 System.out.println(ep.getNombres() + " " + ep.getNombres() + " Estado: " + ep.getEsEstado());
-                ep.setNombres("Ingrese el nombre");
-                ep.setApellidos("Ingrese los apellidos");
-                ep.setDui("Ingrese el DUI");
+                System.out.println("Ingrese los nombres: ");
+                ep.setNombres(lr.leerCadenaDeTexto());
+                System.out.println("Ingrese los apellidos: ");
+                ep.setApellidos(lr.leerCadenaDeTexto());
+                System.out.println("Ingrese el DUI");
+                ep.setDui(lr.leerCadenaDeTexto());
                 sx.sexosConformato();
                 ep.setSxSexo(lr.leerByte("sexo"));
                 ep.setFechaModificacion(fc.fechaActual());
@@ -160,30 +188,41 @@ public class EmpleadoMDL {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (SQLException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
 
     }
 
+    /**
+     * Lista los estados disponibles con un formato vistoso para darle una mejor
+     * experiencia al usuario
+     */
     public void estados() {
         try {
             System.out.println("=================ESTADOS DISPONIBLES=================");
             for (Estado e : es.obtenerTodos()) {
                 System.out.println("ID: " + e.getId() + "|" + e.getNombre());
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
     }
 
+    /**
+     * En esta parte de acorde a un usuario podemos asignar un departamento.
+     *
+     * @param id
+     */
     public void asignarDepartamento(int id) {
 
         try {
@@ -209,15 +248,20 @@ public class EmpleadoMDL {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (SQLException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
 
     }
 
+    /**
+     * Muestra los salarios de lops empleados. en un formato mas vistoso para el
+     * usuario final.
+     */
     public void verSalarioEmpleado() {
         try {
             int ide = lr.leerEntero("Id empleado del que quiere ver el salario.");
@@ -234,14 +278,20 @@ public class EmpleadoMDL {
                 System.out.println("El empleado no existe.");
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (SQLException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(EmpleadoMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
     }
 
+    /**
+     * En creamos un nuevo salario y se lo asigna a un usuario en especifico..
+     *
+     * @param id
+     */
     public void asignarnuevoSalario(int id) {
         try {
             Salario sal = new Salario();
@@ -265,15 +315,11 @@ public class EmpleadoMDL {
         } catch (ClassNotFoundException ex) {
             log.error(ex.getMessage());
         } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
             log.error(ex.getMessage());
         } catch (IOException ex) {
             log.error(ex.getMessage());
         }
 
-        }
-
-//    public static void main(String[] args) {
-//        EmpleadoMDL e=new EmpleadoMDL();
-//        e.cambiarEstadoDeEmpleado(0);
-//    }
     }
+}

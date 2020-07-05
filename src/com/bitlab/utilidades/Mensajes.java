@@ -30,7 +30,7 @@ public class Mensajes {
        
         try {
             //instanciando clases y carga de archivos de propiedades.
-            String propiedades = "propiedades.properties";
+            String propiedades = "config.properties";
             Encryptacion encriptacion = new Encryptacion();
             Properties pro = new Properties();
             pro.load(Propiedades.flujoDeDatos(propiedades));

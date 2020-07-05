@@ -20,8 +20,16 @@ public class RecursosHumanos {
     EmpleadoMDL ep=new EmpleadoMDL();
     PlanillaMDL plm=new PlanillaMDL();
     PagosMDL pg=new PagosMDL();
+    /**
+     * Es todo el modulo de recursos humanos con todos sus componentes cargados para
+     * poder ser utilizados por el usuario que hara sus distintas tareas.
+     * recibe el id del usuario en la session..
+     * @param id 
+     */
     public void moduloRecursosHumanos(int id)
     {
+        boolean flag=true;
+        while(flag){
         System.out.println("1 )Actualización de datos del empleado.");
         System.out.println("2 )Desactivación de empleados por despido.");
         System.out.println("3 )Contratación de empleados");
@@ -54,12 +62,13 @@ public class RecursosHumanos {
                 plm.generarPlanilla(id);
                 break;
             case 8:
-                
+                System.out.println("Gracias por usar el sistema.");
+                flag=false;
                 break;
             default:
         
         }
-        
+        }  
     }
     
 }

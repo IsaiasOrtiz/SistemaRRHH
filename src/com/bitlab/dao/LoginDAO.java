@@ -21,6 +21,16 @@ import java.util.logging.Logger;
  * @author Douglas Isaias Valle Ortiz
  */
 public class LoginDAO extends AbstractDAO<Usuario>{
+    /**
+     * Este metodo recibe el usuario y la clave optiene el usuario con 
+     * el usuario que le mandamos por parametros y trae la clave encriptada 
+     * la desencripta con la que tragimos de la bd y la compara 
+     * si no son iguales retorna null y si es igual entonces
+     * retorna el usuario con ese usuario y clave.
+     * @param usuario
+     * @param clave
+     * @return 
+     */
     public Usuario obtenerUnDatoPorId(String usuario, String clave) {
         try {
             String sqlObtenerUno = sqlSelectConsulta();

@@ -21,7 +21,10 @@ public class TipoDML {
     private final Logger log=LoggerFactory.getLogger(TipoDML.class);
     Tipo tp = new Tipo();
     TipoDAO tpd = new TipoDAO();
-
+    /**
+     * Lista los tipos de usuarios disponibles.
+     * vista.
+     */
     public void tipos() {
         try {
 
@@ -40,18 +43,23 @@ public class TipoDML {
         }
 
     }
-
+    /**
+     * Vefifica si ya existe un dato con ese ID
+     * @param id
+     * @return 
+     */
     public boolean verificar(byte id)
     {
         boolean verificacion=false;
         try {
             verificacion=tpd.datoExiste(id);
         } catch (ClassNotFoundException ex) {
-            
+            log.error(ex.getMessage());
         } catch (SQLException ex) {
-            
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            
+            log.error(ex.getMessage());
         }
         return verificacion;
     }

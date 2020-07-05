@@ -8,7 +8,6 @@ package com.bitlab.modulosopciones;
 import com.bitlab.dao.DepartamentoDAO;
 import com.bitlab.dao.EstadoDAO;
 import com.bitlab.entidades.Departamento;
-import com.bitlab.modulos.Administrador;
 import com.bitlab.utilidades.Fechas;
 import com.bitlab.utilidades.LecturaDatos;
 import java.io.IOException;
@@ -30,7 +29,11 @@ public class DepartamentosMDL {
     LecturaDatos lr = new LecturaDatos();
     Fechas fc = new Fechas();
     EstadoDAO esd = new EstadoDAO();
-
+    /**
+     * Es como un frontend para crear un nuevo departamento 
+     * recibe como parametro el usuario que registro  el nuevo departamento
+     * @param idUsuario 
+     */
     public void crearNuevoDepartamento(int idUsuario) {
         Departamento area = new Departamento();
         area.setId(lr.leerEntero("ID del departamento"));
@@ -57,7 +60,12 @@ public class DepartamentosMDL {
             log.error(ex.getMessage());
         }
     }
-
+    /**
+     * Fronted donde eliminamos un demartamento.
+     * consulta si el departamento existe.
+     * y controla las exepxciones y las registra 
+     * en un log
+     */
     public void eliminarDapartamento() {
         try {
             int idDp = lr.leerEntero("Id departamento a eliminar");
@@ -78,7 +86,11 @@ public class DepartamentosMDL {
             log.error(ex.getMessage());
         }
     }
-
+    /**
+     * Vista para modificar un departamento 
+     * recibe como paraetro el usuario que modifica el departamento.
+     * @param idU 
+     */
     public void modificarDepartamento(int idU) {
         try {
             int id = lr.leerEntero("Id departamento a modificar");
@@ -106,7 +118,10 @@ public class DepartamentosMDL {
         }
 
     }
-
+    /**
+     * Lista los departamentos 
+     * con un formato mas vistoso.
+     */
     public void verDepartamentos() {
         try {
             for (Departamento obtenerTodo : dp.obtenerTodos()) {
@@ -123,7 +138,12 @@ public class DepartamentosMDL {
             log.error(ex.getMessage());
         }
     }
-
+    /**
+     * Genera todo el modulo para la administracion de departamentos
+     * y brinda las opciones al usuario.
+     * recibe el id del usuario de la sision
+     * @param id 
+     */
     public void moduloDepartamentos(int id) {
         boolean flag = true;
         while (flag) {

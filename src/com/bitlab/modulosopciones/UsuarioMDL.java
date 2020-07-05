@@ -6,7 +6,6 @@
 package com.bitlab.modulosopciones;
 
 import com.bitlab.dao.UsuarioDAO;
-import com.bitlab.entidades.Empleado;
 import com.bitlab.entidades.Usuario;
 import com.bitlab.utilidades.Encryptacion;
 import com.bitlab.utilidades.Fechas;
@@ -31,10 +30,13 @@ public class UsuarioMDL {
     UsuarioDAO us = new UsuarioDAO();
 
     TipoDML tp = new TipoDML();
-    public static void main(String[] args) {
-        UsuarioMDL us=new UsuarioMDL();
-        us.crearNuevoUsuario(0);
-    }
+    /**
+     * Creamos un nuevo usuario 
+     * en el cual tenemos recibimos el id del usuario que esta creando ese empleado.
+     * y leemos todo lo necesario par apoder
+     * insertarlo en la tabla.
+     * @param idU 
+     */
     public void crearNuevoUsuario(int idU) {
         try {
             Usuario user = new Usuario();
@@ -90,15 +92,17 @@ public class UsuarioMDL {
             }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UsuarioMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            Logger.getLogger(UsuarioMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(UsuarioMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
     }
-
+    /**
+     * Crea una lista de los usuarios registrados en el sistema.
+     */
     public void listaUsuarios() {
         try {
 
@@ -125,7 +129,12 @@ public class UsuarioMDL {
         }
 
     }
-
+    /**
+     * Vista para modificar un usuario.
+     * recibe el id del usuario de la session para
+     * poder agregarlos a los campos de auditorias
+     * @param id 
+     */
     public void modificarUsuario(int id) {
         try {
             System.out.println("|Modificar usuario|");
@@ -154,7 +163,11 @@ public class UsuarioMDL {
         }
 
     }
-
+      /**
+       * Crea el modulo de usuarios con todas la opciones.
+       * para que puedan elejir.
+       * @param id 
+       */
     public void usuariosModulo(int id) {
         boolean flag = true;
         while (flag) {

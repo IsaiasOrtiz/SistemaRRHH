@@ -18,7 +18,12 @@ public class LecturaDatos {
     public static final String ANSI_RESET = "\u001B[0m";
     GregorianCalendar gc = new GregorianCalendar();
     Scanner sc = new Scanner(System.in);
-
+    /**
+     * Pide el usuario ingresar 
+     * dia,mes,año 
+     * y retorna la fecha en un tipo Date ya validado
+     * @return 
+     */
     public Date leerFecha() {
         byte dia = 100;
         byte mes = 100;
@@ -56,7 +61,14 @@ public class LecturaDatos {
         gc.set(GregorianCalendar.YEAR, ano);
         return new Date(gc.getTimeInMillis());
     }
-
+    /**
+     * Lee una cadena de texto y valida que no este vacia 
+     * y la pide hasta que el usuario ingrese un formato 
+     * correcto.
+     * retorna la cadena leida.
+     * @param nombreCampo
+     * @return 
+     */
     public String leerCadenaDeTexto(String nombreCampo) {
         String nombre = "";
         boolean flag = true;
@@ -74,7 +86,38 @@ public class LecturaDatos {
         }
         return nombre;
     }
+    /**
+     * Lee una cadena de texto y valida que no este vacia 
+     * y la pide hasta que el usuario ingrese un formato 
+     * correcto.
+     * retorna la cadena leida.
+     * @return 
+     */
+    public String leerCadenaDeTexto() {
+        String nombre = "";
+        boolean flag = true;
+        while (flag) {
 
+           
+            nombre = sc.nextLine();
+            if (nombre.isEmpty()) {
+                System.out.println("No puede dejar campo vacio!");
+            } else if (nombre.length() < 3) {
+                System.out.println("El campo no puede tener solo 2 caracteres.");
+            } else {
+                flag = false;
+            }
+        }
+        return nombre;
+    }
+    /**
+     * Lee un numero entero y valida que no sea menor a 0
+     * y que el formato este en un fotmato correcto
+     * retorna el numero cuando se valido.
+     * 
+     * @param nombre nombre del campo.
+     * @return 
+     */
     public int leerEntero(String nombre) {
 
         int id = 0;
@@ -95,7 +138,14 @@ public class LecturaDatos {
         }
         return id;
     }
-
+    /**
+     * Lee un numero double y valida que no sea menor a 0
+     * y que el formato este en un fotmato correcto
+     * retorna el numero cuando se valido.
+     * 
+     * @param nombre nombre del campo.
+     * @return 
+     */
     public double leerDouble(String nombre) {
 
         double decimalDato = 0;
@@ -116,7 +166,14 @@ public class LecturaDatos {
         }
         return decimalDato;
     }
-
+    /**
+     * Lee un numero byte y valida que no sea menor a 0
+     * y que el formato este en un fotmato correcto
+     * retorna el numero cuando se valido.
+     * 
+     * @param nombre nombre del campo.
+     * @return 
+     */
     public byte leerByte(String nombre) {
 
         byte byteD = 0;
@@ -137,7 +194,14 @@ public class LecturaDatos {
         }
         return byteD;
     }
-
+    /**
+     * Recibe las un parametro inicial y uno final 
+     * y pide un numero de acorde al rango establecido 
+     * si esta afuera del rango vuelve a pedirlo.
+     * @param inicial
+     * @param fin
+     * @return 
+     */
     public byte leerOpciones(byte inicial, byte fin) {
         boolean flag = true;
         byte numero = 0;
@@ -155,7 +219,15 @@ public class LecturaDatos {
             
         }
         return numero;
-    }  public boolean siOno(Object obj) {
+    } 
+    /**
+     * Pergunta si o no y retorna 
+     * true o false 
+     * dependiendo de la respuesta del usuario
+     * @param obj objecto para imprimir toString()
+     * @return 
+     */
+    public boolean siOno(Object obj) {
         System.out.println(obj.toString());
         boolean flag = true;
         String dato="";
@@ -175,6 +247,12 @@ public class LecturaDatos {
         }
         return false;
     }
+    /**
+     * Pergunta si o no y retorna 
+     * true o false 
+     * dependiendo de la respuesta del usuario
+     * @return 
+     */
     public boolean siOno() {
         boolean flag = true;
         String dato="";

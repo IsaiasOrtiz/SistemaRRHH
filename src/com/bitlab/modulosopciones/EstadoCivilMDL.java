@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
  */
 public class EstadoCivilMDL {
     EstadoCivilDAO es=new EstadoCivilDAO();
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(EstadoCivilMDL.class);
     /**
      * Muestra todos los estados civiles disponibles con 
      * un formato asignado.
@@ -30,12 +32,13 @@ public class EstadoCivilMDL {
                 System.out.println("|ID: "+e.getId()+" Nombre: "+e.getNombre());
             }
             System.out.println("===============================");
-        } catch (SQLException ex) {
-            Logger.getLogger(EstadoCivilMDL.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EstadoCivilMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            log.error(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(EstadoCivilMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         }
     }
 }

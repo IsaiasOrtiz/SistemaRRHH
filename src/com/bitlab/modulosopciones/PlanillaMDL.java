@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -29,13 +30,19 @@ import java.util.logging.Logger;
  */
 public class PlanillaMDL {
 
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(PlanillaMDL.class);
     EmpleadoDAO ep = new EmpleadoDAO();
     SalarioDAO sl = new SalarioDAO();
     Planilla pl = new Planilla();
     Fechas fc = new Fechas();
     LecturaDatos lr = new LecturaDatos();
     PagosDAO pgd = new PagosDAO();
-
+    /**
+     * Genera la planilla de los empleados pero se efectua el pago 
+     * si el usuario dice que quiere hacerlo y se guarda en la tabla 
+     * de pagos. 
+     * @param idu 
+     */
     public void generarPlanilla(int idu) {
         try {
             Empleado emp = new Empleado();
@@ -86,7 +93,7 @@ public class PlanillaMDL {
                         pgd.sqlInsert(pg);
                     }
                     empleados.clear();
-                }else{
+                } else {
                     System.out.println("Ya se hicieron los pagos de este mes.");
                 }
 
@@ -95,11 +102,12 @@ public class PlanillaMDL {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PlanillaMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PlanillaMDL.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage());
+            System.out.println(ex.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(PlanillaMDL.class.getName()).log(Level.SEVERE, null, ex);
+             log.error(ex.getMessage());
         }
     }
 }

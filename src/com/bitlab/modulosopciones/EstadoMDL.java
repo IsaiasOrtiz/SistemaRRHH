@@ -27,7 +27,13 @@ public class EstadoMDL {
     LecturaDatos lr = new LecturaDatos();
     Fechas fc = new Fechas();
     EstadoDAO esd = new EstadoDAO();
-
+    /**
+     * Siverve para crear un nuevo estado para los empleados.
+     * para que posteriormente sean usados
+     * recibe como parametro el id del usuario que esta 
+     * haciendo los cambios.
+     * @param id 
+     */
     public void nuevoEstadoEmpleado(int id) {
         Estado es = new Estado();
         es.setId(lr.leerEntero("Id estado de empleado"));
@@ -51,7 +57,12 @@ public class EstadoMDL {
             }
         }
     }
-
+    /**
+     * Sirve para modificar un estado es simplemente la vista como todos
+     * los metodos en esta clase 
+     * recibe como paramero el id del empleado que esta modificando el estado
+     * @param idu 
+     */
     public void modificarUnEstado(int idu) {
         try {
             System.out.println("Modificara un estado..");
@@ -82,6 +93,10 @@ public class EstadoMDL {
         }
 
     }
+    /**
+     * Lista los estados de una manera mas vistosa 
+     * para el usuario final.
+     */
     public void consultarEstados()
     {
         try {
@@ -99,6 +114,12 @@ public class EstadoMDL {
         }
     
     }
+    /**
+     * Crea mos todo el moduo para la manipulacion de los estados
+     * y con esto llamamos a nuestro metodo segun la opcion seleccionada 
+     * recibe el id del usuario de la session.
+     * @param id 
+     */
     public void moduloEstado(int id)
     {
     boolean flag=true;
