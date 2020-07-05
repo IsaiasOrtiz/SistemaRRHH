@@ -182,6 +182,7 @@ public abstract class AbstractDAO<T> {
         cerrarObjetosJDBC(cn, ps, rs);
         return lista;
     }
+   
 
     /**
      * Este metodo es para buscar por PrimaryKey un campo en una

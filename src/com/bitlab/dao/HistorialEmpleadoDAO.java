@@ -58,7 +58,7 @@ public class HistorialEmpleadoDAO extends AbstractDAO<HistorialEmpleado>{
  //{"HTP_ID","HTP_DESCRIPCION","EP_ID","A_USUARIO_MODIFICA","A_USUARIO_CREA","A_FECHA_MODIFICACION","A_FECHA_CREACION"}
     @Override
     protected void mapearPreparedStatementInsert(HistorialEmpleado entidad, PreparedStatement ps) throws SQLException {
-        ps.setInt(      1, entidad.getId());
+        ps.setNull(     1, java.sql.Types.INTEGER);
         ps.setString(   2, entidad.getDescripcion());
         ps.setInt(      3, entidad.getEmpleado());
         ps.setInt(      4, entidad.getUsuarioModifica());

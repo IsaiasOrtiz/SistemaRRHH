@@ -45,7 +45,7 @@ public class SalarioDAO extends AbstractDAO<Salario>{
 
     @Override
     protected int limiteDeBusquedaEstablecer() {
-        return 25;
+        return 1000;
     }
 
     @Override

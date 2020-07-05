@@ -175,4 +175,23 @@ public class LecturaDatos {
         }
         return false;
     }
+    public boolean siOno() {
+        boolean flag = true;
+        String dato="";
+        while (flag) {
+            System.out.println("Opciones = ([Y]-[N]) Yes,No");
+            dato=sc.nextLine();
+            if(dato.isEmpty())
+            {
+                System.out.println("Seleccione una opcion...");
+            }else if((dato.toUpperCase()).contains("Y")){
+                
+            return true;
+            } else if((dato.toUpperCase()).contains("N")){
+                System.out.println("No se hara ningun cambio.");
+                return false;
+            }
+        }
+        return false;
+    }
 }

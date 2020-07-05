@@ -31,7 +31,10 @@ public class UsuarioMDL {
     UsuarioDAO us = new UsuarioDAO();
 
     TipoDML tp = new TipoDML();
-
+    public static void main(String[] args) {
+        UsuarioMDL us=new UsuarioMDL();
+        us.crearNuevoUsuario(0);
+    }
     public void crearNuevoUsuario(int idU) {
         try {
             Usuario user = new Usuario();

@@ -5,13 +5,11 @@
  */
 package com.bitlab.modulos;
 
-import com.bitlab.entidades.Departamento;
 import com.bitlab.modulosopciones.DepartamentosMDL;
 import com.bitlab.modulosopciones.EstadoMDL;
 import com.bitlab.modulosopciones.UsuarioMDL;
 import com.bitlab.utilidades.Comandos;
 import com.bitlab.utilidades.LecturaDatos;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

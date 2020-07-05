@@ -74,10 +74,7 @@ public class Encryptacion {
     public String getDesencryptacion(String campo)
     {
         return bs.decrypt(campo);
-    }
-    
-    
-    
+    } 
     
     
 }
